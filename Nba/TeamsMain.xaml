@@ -1,0 +1,155 @@
+﻿<Page x:Class="Nba.TeamsMain"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Nba"
+      mc:Ignorable="d" Loaded="OnPageLoad"
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="TeamsMain">
+    
+    <Page.Resources>
+        <RoutedUICommand x:Key="OpenTeamDetail" Text="Show Team Detail"/>
+        <local:TeamLogoConverter x:Key="TeamLogoConverter"/>
+        <CollectionViewSource x:Key="conferenceViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Conference}, CreateList=True}"/>
+    </Page.Resources>
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource OpenTeamDetail}" Executed="OpenTeamDetailHandler"/>
+    </Page.CommandBindings>
+    
+    <Grid>
+        
+        <!--Верхняя панель-->
+        <Grid Height="64" Margin="0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Column="0" HorizontalAlignment="Left" Height="64" Margin="16,3,3,3" VerticalAlignment="Center" Width="37" Source="img/logo.jpg"/>
+            <Label Content="NBA Management System" Grid.Column="1" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" Style="{StaticResource HeaderText}"/>
+            <Label Content="Teams Main" Grid.Column="2" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText}"/>
+            <Button Content="Back" Grid.Column="3" HorizontalAlignment="Left" Margin="3,3,16,3" VerticalAlignment="Center" Width="75" Click="BackClick"/>
+        </Grid>
+        
+        <!--Панель с вкладками-->
+        <TabControl x:Name="tabControl" Margin="8,100,8,8" ItemsSource="{Binding Source={StaticResource conferenceViewSource}}">
+            
+            <!--Шаблон для вкладок-->
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource MainText}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            
+            <!--Шаблон содержимого панели-->
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <!--Сначала отобразить дивизионы-->
+                        <ItemsControl ItemsSource="{Binding Divisions}">
+                            <!--Элементы интерфейса, отображающие данные о дивизионе,
+                            будут размещаться внутри UniformGrid-->
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <!--Число колонок UniformGrid равно числу дивизионов-->
+                                    <UniformGrid Margin="8" Columns="{Binding Divisions.Count}" Rows="1"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <!--Шаблон для отображения сведений об отдельно взятом дивизионе.
+                            Представляет из себя заголовок с именем дивизона и сетку с
+                            информацией о командах, входящих в дивизион-->
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="8">
+                                        <!--Две строки в сетке: 1 для заголовка, 2 для таблицы с командами-->
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <!--Название дивизиона размещается внутри Border, для отображения рамки вокруг TextBlock-->
+                                        <TextBlock Grid.Row="0" Padding="4" Text="{Binding Name}" Style="{StaticResource MainText}" TextAlignment="Center" Background="#FFDFDCDC" Height="24" VerticalAlignment="Top"/>                                        
+                                        <!--Далее идет сетка с командами, входящими в данный дивизион-->
+                                        <ItemsControl Grid.Row="1" ItemsSource="{Binding Teams}">
+                                            <!--Строки с командами будут размещены внутри UniformGrid-->
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <!--Кол-во строк равно кол-ву команд в дивизионе-->
+                                                    <UniformGrid Rows="{Binding Teams.Count}" Columns="1"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+
+                                            <!--Шаблон для отображения сведений об отдельно взятой команде-->
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+
+                                                    <!--Для отображения рамки сетка помещена внутрь элемента Border-->
+                                                    <Border BorderBrush="Black" BorderThickness="0.5">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <!--Логотип команды-->
+                                                            <Image Grid.Column="0" Source="{Binding Logo, Converter={StaticResource TeamLogoConverter}}" Width="48" Height="48" Margin="4,0" VerticalAlignment="Stretch">
+                                                                <!--Логотип должен реагировать на клик мышкой, поэтому добавляем данный элемент-->
+                                                                <Image.InputBindings>
+                                                                    <!--При нажатии левой кнопкой на лого будет выполнена команда OpenTeamDetail.
+                                                                    Вместе с нажатием необходимо передать параметр - текущую команду NBA-->
+                                                                    <MouseBinding Gesture="LeftClick" Command="{StaticResource OpenTeamDetail}" CommandParameter="{Binding}"/>
+                                                                </Image.InputBindings>
+                                                            </Image>
+
+                                                            <Grid Grid.Column="1">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="*"/>
+                                                                </Grid.ColumnDefinitions>
+
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="*"/>
+                                                                    <RowDefinition Height="*"/>
+                                                                </Grid.RowDefinitions>
+
+                                                                <!--Надпись с названием команды-->
+                                                                <Label Style="{StaticResource HeaderText}" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                                    <!--Надпись также должна реагировать на нажатие, поэтому вставляем гиперссылку.
+                                                                    Результат такой же, как и при нажатии на логотип-->
+                                                                    <Hyperlink Command="{StaticResource OpenTeamDetail}" CommandParameter="{Binding}" TextDecorations="{x:Null}">
+                                                                        <Label Content="{Binding TeamName}"/>
+                                                                    </Hyperlink>
+                                                                </Label>
+                                                                <UniformGrid Grid.Row="1" Columns="3" Rows="1">
+                                                                    <!--Надпись Roster. Реагирует на нажатие-->
+                                                                    <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                                        <Hyperlink Command="{StaticResource OpenTeamDetail}" CommandParameter="{Binding}" TextDecorations="{x:Null}">
+                                                                            <Label Content="Roster" Style="{StaticResource TextLink}"/>
+                                                                        </Hyperlink>
+                                                                    </Label>
+
+                                                                    <Label Content="Matchup" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TextLink}"/>
+                                                                    <Label Content="First Lineup" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TextLink}"/>
+                                                                </UniformGrid>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </Grid>
+</Page>

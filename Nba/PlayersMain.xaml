@@ -1,0 +1,220 @@
+﻿<Page x:Class="Nba.PlayersMain"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Nba"
+      xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+      mc:Ignorable="d" Loaded="OnPageLoad"
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="PlayersMain">
+    <Page.Resources>
+        <local:PlayerImgConverter x:Key="PlayerImgConverter"/>
+        <local:ExperienceConverter x:Key="ExperienceConverter"/>
+        <RoutedUICommand x:Key="LetterSelect" Text="LetterSelect"/>
+        <CollectionViewSource x:Key="teamViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Team}, CreateList=True}"/>
+        <CollectionViewSource x:Key="seasonViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Season}, CreateList=True}"/>
+        <CollectionViewSource x:Key="playerInTeamViewSource" d:DesignSource="{d:DesignInstance {x:Type local:PlayerInTeam}, CreateList=True}">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="ShirtNumber"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </Page.Resources>
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource LetterSelect}" Executed="LetterSelectHandler"/>
+    </Page.CommandBindings>
+
+    <Grid DataContext="{StaticResource playerInTeamViewSource}">
+        <Grid Height="64" Margin="0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Column="0" HorizontalAlignment="Left" Height="64" Margin="16,3,3,3" VerticalAlignment="Center" Width="37" Source="img/logo.jpg"/>
+            <Label Content="NBA Management System" Grid.Column="1" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" Style="{StaticResource HeaderText}"/>
+            <Label Content="Players Main" Grid.Column="2" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText}"/>
+            <Button Content="Back" Grid.Column="3" HorizontalAlignment="Left" Margin="3,3,16,3" VerticalAlignment="Center" Width="75" Click="BackClick"/>
+        </Grid>
+        <Grid Height="64" Margin="0,80,0,0" VerticalAlignment="Top">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource clrPrimary}"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Height="32" Margin="0" Grid.Row="0" VerticalAlignment="Top" Orientation="Horizontal">
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=ALL, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="ALL" Text="ALL" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=A, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="A" Text="A" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=B, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="B" Text="B" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=C, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="C" Text="C" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=D, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="D" Text="D" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=E, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="E" Text="E" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=F, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="F" Text="F" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=G, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="G" Text="G" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=H, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="H" Text="H" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=I, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="I" Text="I" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=J, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="J" Text="J" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=K, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="K" Text="K" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=L, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="L" Text="L" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=M, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="M" Text="M" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=N, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="N" Text="N" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=O, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="O" Text="O" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=P, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="P" Text="P" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=Q, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="Q" Text="Q" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=R, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="R" Text="R" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=S, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="S" Text="S" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=T, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="T" Text="T" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=U, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="U" Text="U" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=V, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="V" Text="V" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=W, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="W" Text="W" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=X, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="X" Text="X" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=Y, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="Y" Text="Y" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Command="{StaticResource LetterSelect}" CommandParameter="{Binding ElementName=Z, Path=Text}" Foreground="White" FontWeight="Bold" TextDecorations="{x:Null}">
+                        <TextBlock x:Name="Z" Text="Z" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </Hyperlink>
+                </Label>
+
+
+
+            </StackPanel>
+            <StackPanel Height="32" Margin="0" Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal">
+                <Label Content="Season:" Margin="8,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                <ComboBox x:Name="seasonComboBox" DisplayMemberPath="Name" ItemsSource="{Binding Source={StaticResource seasonViewSource}}" Margin="8,0,0,0" SelectedValuePath="Name" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" SelectionChanged="seasonComboBox_SelectionChanged" />
+                <Label Content="Team:" Margin="16,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                <ComboBox x:Name="teamComboBox" DisplayMemberPath="TeamName" ItemsSource="{Binding Source={StaticResource teamViewSource}}" Margin="8,0,0,0" SelectedValuePath="Name" Width="170" HorizontalAlignment="Center" VerticalAlignment="Center" SelectionChanged="teamComboBox_SelectionChanged"/>
+                <Label Content="Player Name:" Margin="16,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                <TextBox TextWrapping="Wrap" Width="140" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0,0,0"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid x:Name="playerInTeamDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="8,150,8,32" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Width="64" Height="64" Source="{Binding Player.Img, Converter={StaticResource PlayerImgConverter}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="shirtNumberColumn" Binding="{Binding ShirtNumber}" Header="No." Width="Auto"/>
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Player.Name}" Header="Name" Width="Auto"/>
+                <DataGridTextColumn x:Name="teamColumn" Binding="{Binding Team.Abbr}" Header="Team" Width="Auto"/>
+                <DataGridTextColumn x:Name="positionColumn" Binding="{Binding Player.Position.Abbr}" Header="Position" Width="Auto"/>
+                <DataGridTextColumn x:Name="weightColumn" Binding="{Binding Player.Weight}" Header="Weight" Width="Auto"/>
+                <DataGridTextColumn x:Name="heightColumn" Binding="{Binding Player.Height}" Header="Height" Width="Auto"/>
+                <DataGridTextColumn x:Name="expColumn" Binding="{Binding Player.JoinYear, Converter={StaticResource ExperienceConverter}}" Header="Experience" Width="Auto"/>
+                <DataGridTextColumn x:Name="countryColumn" Binding="{Binding Player.Country.CountryName}" Header="Country" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

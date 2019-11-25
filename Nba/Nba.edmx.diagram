@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="08a5117e2e174e6794c2fd76e71ee038" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="nbaModel.ActionType" Width="1.5" PointX="10.5" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.Admin" Width="1.5" PointX="15" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.Conference" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.Country" Width="1.5" PointX="6" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.Division" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.Matchup" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.MatchupDetail" Width="1.5" PointX="9.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.MatchupLog" Width="1.5" PointX="12.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.MatchupType" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.Player" Width="1.5" PointX="8.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.PlayerInTeam" Width="1.5" PointX="10.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.PlayerStatistic" Width="1.5" PointX="10.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.Position" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.PostSeason" Width="1.5" PointX="7.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.Role" Width="1.5" PointX="12.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.Season" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nbaModel.Team" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="nbaModel.FK_MatchupLog_ActionType" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_Admin_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_Division_Conference" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_Player_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_Team_Division" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_Matchup_MatchupType" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_Matchup_Season" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_Matchup_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_Matchup_Team1" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_MatchupDetail_Matchup" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_MatchupLog_Matchup" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_MatchupLog_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_MatchupLog_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_Player_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_PlayerInTeam_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_PlayerStatistics_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_PlayerInTeam_Season" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_PlayerInTeam_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_PlayerStatistics_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_PostSeason_Season" ManuallyRouted="false" />
+        <AssociationConnector Association="nbaModel.FK_PostSeason_Team" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="nbaModel.Picture" Width="1.5" PointX="0.75" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

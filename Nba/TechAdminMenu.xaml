@@ -1,0 +1,47 @@
+﻿<Page x:Class="Nba.TechAdminMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Nba"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="TechAdminMenu">
+
+    <Grid>
+        
+        <Grid Height="64" Margin="0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Column="0" HorizontalAlignment="Left" Height="64" Margin="16,3,3,3" VerticalAlignment="Center" Width="37" Source="img/logo.jpg"/>
+            <Label Content="NBA Management System" Grid.Column="1" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" Style="{StaticResource HeaderText}"/>
+            <Label Content="Technical Administrator menu" Grid.Column="2" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText}"/>
+            <Button Content="Logout" Grid.Column="3" HorizontalAlignment="Left" Margin="3,3,16,3" VerticalAlignment="Center" Width="75"/>
+            <Button Content="Back" Grid.Column="4" HorizontalAlignment="Left" Margin="3,3,16,3" VerticalAlignment="Center" Width="75" Click="BackClick"/>
+        </Grid>
+        
+        <StackPanel Height="100" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="450" Orientation="Horizontal">
+            <Button Content="Manage Executions" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Style="{StaticResource MainButton}" Height="100" Click="ManageClick"/>
+            <Button Content="Team Report" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="150,0,0,0" VerticalAlignment="Center" Width="150" Style="{StaticResource MainButton}" Height="100"/>
+        </StackPanel>
+        
+        <!--Панель с информационным сообщением и кнопкой "Закрыть"
+        Видимость панели управляется свойством Visibility-->
+        <Border x:Name="msgGrid" Visibility="Hidden" BorderBrush="Black" BorderThickness="1" Width="400" Height="150" VerticalAlignment="Top" Margin="0,100,0,0">
+            <Grid HorizontalAlignment="Center" Height="150" Margin="0" Width="400" Background="White">
+                <TextBlock HorizontalAlignment="Center" Margin="0,8,0,0" TextWrapping="Wrap" Text="Manage Executions - Future Add-on" VerticalAlignment="Top" Style="{StaticResource MainText}"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="The feature would be a future add-on to the current system" VerticalAlignment="Center"/>
+                <Button Content="X" HorizontalAlignment="Right" Margin="0,8,8,0" VerticalAlignment="Top" Width="32" Height="32" Click="CloseGridClick"/>
+            </Grid>
+        </Border>
+        
+    </Grid>
+</Page>

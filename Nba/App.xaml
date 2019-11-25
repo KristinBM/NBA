@@ -1,0 +1,30 @@
+﻿<Application x:Class="Nba.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Nba"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Color x:Key="clrPrimary">#6996c2</Color>
+        <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource clrPrimary}" />
+        <SolidColorBrush x:Key="WhiteForeground" Color="White" />
+        <SolidColorBrush x:Key="BlackForeground" Color="Black" />
+        <Style x:Key="HeaderText" TargetType="Label">
+            <Setter Property="FontFamily" Value="Calibri"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style x:Key="TextLink" TargetType="Label">
+            <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}"/>
+            <Setter Property="FontSize" Value="10"/>
+        </Style>
+        <Style x:Key="MainText" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Microsoft Sans Serif"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style x:Key="MainButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="Calibri"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="{StaticResource WhiteForeground}"/>
+            <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+        </Style>
+    </Application.Resources>
+</Application>

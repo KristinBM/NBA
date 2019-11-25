@@ -1,0 +1,42 @@
+﻿<Page x:Class="Nba.VisitorMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Nba"
+      mc:Ignorable="d" Loaded="OnPageLoad"
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="VisitorMenu">
+
+    <Grid>
+        <Grid Height="64" Margin="0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Column="0" HorizontalAlignment="Left" Height="64" Margin="16,3,3,3" VerticalAlignment="Center" Width="37" Source="img/logo.jpg"/>
+            <Label Content="NBA Management System" Grid.Column="1" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" Style="{StaticResource HeaderText}"/>
+            <Label Content="Visitor Menu" Grid.Column="2" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText}"/>
+            <Button Content="Back" Grid.Column="3" HorizontalAlignment="Left" Margin="3,3,16,3" VerticalAlignment="Center" Width="75" Click="BackClick"/>
+        </Grid>
+        <Grid Margin="100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Content="Teams" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Style="{StaticResource MainButton}" Height="64" Click="TeamsClick"/>
+            <Button Content="Players" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Style="{StaticResource MainButton}" Height="64" Click="PlayersClick"/>
+            <Button Content="Matchups" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Style="{StaticResource MainButton}" Height="64"/>
+            <Button Content="Photos" Grid.Column="1" HorizontalAlignment="Center" Margin="0" Grid.Row="1" VerticalAlignment="Center" Width="150" Style="{StaticResource MainButton}" Height="64"/>
+        </Grid>
+    </Grid>
+</Page>

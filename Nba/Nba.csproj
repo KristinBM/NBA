@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE1D0C3B-36D9-4090-B163-0B127494C024}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Nba</RootNamespace>
+    <AssemblyName>Nba</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>basketball.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ActionType.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AddMatchup.xaml.cs">
+      <DependentUpon>AddMatchup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdminLogin.xaml.cs">
+      <DependentUpon>AdminLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Conference.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Division.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventAdminMenu.xaml.cs">
+      <DependentUpon>EventAdminMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Matchup.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchupDetail.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchupLog.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchupType.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nba.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Picture.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Player.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerInTeam.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayersMain.xaml.cs">
+      <DependentUpon>PlayersMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerStatistic.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostSeason.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Season.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Team.cs">
+      <DependentUpon>Nba.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeamDetail.xaml.cs">
+      <DependentUpon>TeamDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeamLogoConverter.cs" />
+    <Compile Include="TeamsMain.xaml.cs">
+      <DependentUpon>TeamsMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TechAdminMenu.xaml.cs">
+      <DependentUpon>TechAdminMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VisitorMenu.xaml.cs">
+      <DependentUpon>VisitorMenu.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AddMatchup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EventAdminMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="PlayersMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamsMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TechAdminMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VisitorMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Nba.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Nba.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nba.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Nba.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Nba.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Nba.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Nba.edmx.diagram">
+      <DependentUpon>Nba.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Conference.datasource" />
+    <None Include="Properties\DataSources\Matchup.datasource" />
+    <None Include="Properties\DataSources\PlayerInTeam.datasource" />
+    <None Include="Properties\DataSources\Season.datasource" />
+    <None Include="Properties\DataSources\Team.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\teams\1.jpg" />
+    <Resource Include="img\teams\10.jpg" />
+    <Resource Include="img\teams\11.jpg" />
+    <Resource Include="img\teams\12.jpg" />
+    <Resource Include="img\teams\13.jpg" />
+    <Resource Include="img\teams\14.jpg" />
+    <Resource Include="img\teams\15.jpg" />
+    <Resource Include="img\teams\16.jpg" />
+    <Resource Include="img\teams\17.jpg" />
+    <Resource Include="img\teams\18.jpg" />
+    <Resource Include="img\teams\19.jpg" />
+    <Resource Include="img\teams\2.jpg" />
+    <Resource Include="img\teams\20.jpg" />
+    <Resource Include="img\teams\21.jpg" />
+    <Resource Include="img\teams\22.jpg" />
+    <Resource Include="img\teams\23.jpg" />
+    <Resource Include="img\teams\24.jpg" />
+    <Resource Include="img\teams\25.jpg" />
+    <Resource Include="img\teams\26.jpg" />
+    <Resource Include="img\teams\27.jpg" />
+    <Resource Include="img\teams\28.jpg" />
+    <Resource Include="img\teams\29.jpg" />
+    <Resource Include="img\teams\3.jpg" />
+    <Resource Include="img\teams\30.jpg" />
+    <Resource Include="img\teams\4.jpg" />
+    <Resource Include="img\teams\5.jpg" />
+    <Resource Include="img\teams\6.jpg" />
+    <Resource Include="img\teams\7.jpg" />
+    <Resource Include="img\teams\8.jpg" />
+    <Resource Include="img\teams\9.jpg" />
+    <Resource Include="img\players\266.jpg" />
+    <Resource Include="img\players\267.jpg" />
+    <Resource Include="img\players\268.jpg" />
+    <Resource Include="img\players\269.jpg" />
+    <Resource Include="img\players\272.jpg" />
+    <Resource Include="img\pictures\1.jpg" />
+    <Resource Include="img\pictures\10.jpg" />
+    <Resource Include="img\pictures\11.jpg" />
+    <Resource Include="img\pictures\12.jpg" />
+    <Resource Include="img\pictures\13.jpg" />
+    <Resource Include="img\pictures\14.jpg" />
+    <Resource Include="img\pictures\15.jpg" />
+    <Resource Include="img\pictures\16.jpg" />
+    <Resource Include="img\pictures\17.jpg" />
+    <Resource Include="img\pictures\18.jpg" />
+    <Resource Include="img\pictures\2.jpg" />
+    <Resource Include="img\pictures\3.jpg" />
+    <Resource Include="img\pictures\4.jpg" />
+    <Resource Include="img\pictures\5.jpg" />
+    <Resource Include="img\pictures\6.jpg" />
+    <Resource Include="img\pictures\7.jpg" />
+    <Resource Include="img\pictures\8.jpg" />
+    <Resource Include="img\pictures\9.jpg" />
+    <Resource Include="img\person.png" />
+    <Resource Include="img\logo.jpg" />
+    <Resource Include="basketball.ico" />
+    <Resource Include="img\lineup.jpg" />
+    <Content Include="Nba.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Nba.Context.cs</LastGenOutput>
+      <DependentUpon>Nba.edmx</DependentUpon>
+    </Content>
+    <Content Include="Nba.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Nba.edmx</DependentUpon>
+      <LastGenOutput>Nba.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
